@@ -5,6 +5,11 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'ben-cts/centos-7'
   config.vm.box_version = '0.0.3'
+  config.vbguest.auto_update = false
+
+# do NOT download the iso file from a webserver
+  config.vbguest.no_remote = true
+
 
   NODES.each do |node|
     node_name = node[0]
